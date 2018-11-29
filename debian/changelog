@@ -1,3 +1,9 @@
+python3-lxc (1:3.0.2-1~exp+2) UNRELEASED; urgency=medium
+
+  * d/rules: updated
+
+ -- Pierre-Elliott Bécue <peb@debian.org>  Thu, 29 Nov 2018 22:37:17 +0100
+
 python3-lxc (1:3.0.2-1~exp+1) experimental; urgency=medium
 
   * New source package as upstream extracted python3-lxc from the main lxc
