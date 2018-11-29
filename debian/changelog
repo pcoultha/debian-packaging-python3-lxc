@@ -1,9 +1,10 @@
-python3-lxc (1:3.0.2-1~exp+2) UNRELEASED; urgency=medium
+python3-lxc (1:3.0.2-1~exp+2) experimental; urgency=medium
 
   * d/rules: updated
   * d/python3-lxc.install => d/python3-lxc.examples
+  * d/control: remove a build-dep on python3.7-dev
 
- -- Pierre-Elliott Bécue <peb@debian.org>  Thu, 29 Nov 2018 22:37:17 +0100
+ -- Pierre-Elliott Bécue <peb@debian.org>  Thu, 29 Nov 2018 22:41:59 +0100
 
 python3-lxc (1:3.0.2-1~exp+1) experimental; urgency=medium
 
