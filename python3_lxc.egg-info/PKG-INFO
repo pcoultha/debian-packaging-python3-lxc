@@ -1,6 +1,6 @@
 Metadata-Version: 1.2
 Name: python3-lxc
-Version: 3.0.3
+Version: 3.0.4
 Summary: Python3 bindings for LXC
 Home-page: git://github.com/lxc/python3-lxc
 Maintainer: lxc
