@@ -1,6 +1,7 @@
 python3-lxc (1:3.0.4-1) UNRELEASED; urgency=medium
 
   * New upstream release 3.0.4
+  * Switch to debhelper-compat (level 12)
 
  -- Pierre-Elliott Bécue <peb@debian.org>  Thu, 22 Aug 2019 13:32:09 +0200
 

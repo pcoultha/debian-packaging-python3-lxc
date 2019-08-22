@@ -3,7 +3,7 @@ Section: python
 Priority: optional
 Maintainer: pkg-lxc <pkg-lxc-devel@lists.alioth.debian.org>
 Uploaders: Pierre-Elliott Bécue <peb@debian.org>
-Build-Depends: debhelper (>= 11~),
+Build-Depends: debhelper-compat (= 12),
                dh-python,
                lxc-dev (>= 1:3.0.2-1~exp+1),
                pkg-config,
