@@ -10,7 +10,7 @@ Build-Depends: debhelper-compat (= 13),
                python3-all,
                python3-all-dev,
                python3-setuptools
-Standards-Version: 4.4.0
+Standards-Version: 4.6.0
 Homepage: https://linuxcontainers.org/
 Vcs-Git: https://salsa.debian.org/lxc-team/python3-lxc.git
 Vcs-Browser: https://salsa.debian.org/lxc-team/python3-lxc
