@@ -4,6 +4,3 @@ export DEB_BUILD_MAINT_OPTIONS = hardening=+all
 
 %:
 	dh ${@} --with autoreconf,python3 --buildsystem=pybuild
-
-override_dh_missing:
-	dh_missing --fail-missing
