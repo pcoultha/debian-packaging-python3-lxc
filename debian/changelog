@@ -12,11 +12,14 @@ python3-lxc (1:3.0.4-2) UNRELEASED; urgency=medium
   * d/control:
     - Add myself to Uploaders
     - Bump Standards-Version (no changes needed)
+    - Add Rules-Requires-Root: no
   * d/copyright:
     - Correct license; it has always been LGPL 2.1+, not LGPL 2+
     - Add missing files with an Oracle copyright
     - Add myself
+  * Remove deprecated (and unneeded) needs-recommends from d/t/control
   * Add d/gbp.conf and d/salsa-ci.yml
+  * Update d/u/metadata
 
   [ Stéphane Graber ]
   * Add simple testsuite for the package, from Ubuntu
