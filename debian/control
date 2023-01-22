@@ -3,6 +3,7 @@ Section: python
 Priority: optional
 Maintainer: pkg-lxc <pkg-lxc-devel@lists.alioth.debian.org>
 Uploaders: Pierre-Elliott Bécue <peb@debian.org>
+           Mathias Gibbens <gibmat@debina.org>
 Build-Depends: debhelper-compat (= 13),
                dh-python,
                lxc-dev,
@@ -10,7 +11,7 @@ Build-Depends: debhelper-compat (= 13),
                python3-all,
                python3-all-dev,
                python3-setuptools
-Standards-Version: 4.6.0
+Standards-Version: 4.6.2
 Homepage: https://linuxcontainers.org/
 Vcs-Git: https://salsa.debian.org/lxc-team/python3-lxc.git
 Vcs-Browser: https://salsa.debian.org/lxc-team/python3-lxc
