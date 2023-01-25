@@ -119,12 +119,16 @@ class ContainerNetworkList():
 
     def __getitem__(self, index):
         if index >= len(self):
-            raise IndexError("list index out of range")
+            # If index of network is out of bounds, create a new network.
+            self.add("temp_type")
 
         return ContainerNetwork(self.container, index)
 
     def __len__(self):
-        values = self.container.get_config_item("lxc.net")
+        try:
+            values = self.container.get_config_item("lxc.net")
+        except KeyError:
+            values = None
 
         if values:
             return len(values)
@@ -205,7 +209,7 @@ class Container(_lxc.Container):
 
         return _lxc.Container.set_config_item(self, key, value)
 
-    def create(self, template=None, flags=0, args=(), bdevtype=None):
+    def create(self, template=None, flags=0, args=(), bdevtype=None, fssize=0):
         """
             Create a new rootfs for the container.
 
@@ -217,6 +221,7 @@ class Container(_lxc.Container):
             "args" (optional) is a tuple of arguments to pass to the
             template. It can also be provided as a dict.
         """
+
         if isinstance(args, dict):
             tmp_args = []
             for item in args.items():
@@ -230,7 +235,23 @@ class Container(_lxc.Container):
         template_args['args'] = tuple(args)
         if bdevtype:
             template_args['bdevtype'] = bdevtype
+        template_args['fssize'] = fssize
+        if not self.defined:
+           self.save_config()
         return _lxc.Container.create(self, **template_args)
+
+    def destroy(self):
+        """
+            Deletes the container and clears its config
+        """
+
+        if not _lxc.Container.destroy(self):
+            return False
+        
+        # Clear the configuration to match destroyed container state.
+        self.clear_config()
+
+        return True
 
     def clone(self, newname, config_path=None, flags=0, bdevtype=None,
               bdevdata=None, newsize=0, hookargs=()):

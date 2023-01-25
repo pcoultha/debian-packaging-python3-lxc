@@ -106,14 +106,19 @@ assert(container.state == "RUNNING")
 
 ## Checking IP address
 print("Getting the interface names")
-assert(set(container.get_interfaces()) == set(('lo', 'eth0')))
+expected_ifs = set(('lo', 'eth0'))
+if os.path.isdir('/sys/module/sit'):
+    expected_ifs.add('sit0')
+if os.path.isdir('/sys/module/ipip'):
+    expected_ifs.add('tunl0')
+assert(set(container.get_interfaces()) == expected_ifs)
 
 ## Checking IP address
 print("Getting the IP addresses")
 
 count = 0
 ips = []
-while not ips or count == 10:
+while not ips and count != 30:
     ips = container.get_ips()
     time.sleep(1)
     count += 1
