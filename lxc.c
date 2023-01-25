@@ -849,9 +849,11 @@ Container_clone(Container *self, PyObject *args, PyObject *kwds)
         assert(config_path != NULL);
     }
 
+    Py_BEGIN_ALLOW_THREADS
     new_container = self->container->clone(self->container, newname,
                                            config_path, flags, bdevtype,
                                            bdevdata, newsize, hookargs);
+    Py_END_ALLOW_THREADS
 
     Py_XDECREF(py_config_path);
 
@@ -916,9 +918,12 @@ Container_create(Container *self, PyObject *args, PyObject *kwds)
     PyObject *vargs = NULL;
     char *bdevtype = NULL;
     int i = 0;
-    static char *kwlist[] = {"template", "flags", "bdevtype", "args", NULL};
-    if (! PyArg_ParseTupleAndKeywords(args, kwds, "|sisO", kwlist,
-                                      &template_name, &flags, &bdevtype, &vargs))
+    struct bdev_specs fs_specs;
+    memset(&fs_specs, 0, sizeof(fs_specs));
+    static char *kwlist[] = {"template", "flags", "bdevtype", "fssize", "args", NULL};
+    if (! PyArg_ParseTupleAndKeywords(args, kwds, "|siskO", kwlist,
+                                      &template_name, &flags, &bdevtype,
+                                      &fs_specs.fssize, &vargs))
         return NULL;
 
     if (vargs) {
@@ -934,11 +939,13 @@ Container_create(Container *self, PyObject *args, PyObject *kwds)
         }
     }
 
-    if (self->container->create(self->container, template_name, bdevtype, NULL,
+    Py_BEGIN_ALLOW_THREADS
+    if (self->container->create(self->container, template_name, bdevtype, &fs_specs,
                                 flags, create_args))
         retval = Py_True;
     else
         retval = Py_False;
+    Py_END_ALLOW_THREADS
 
     if (vargs) {
         /* We cannot have gotten here unless vargs was given and create_args
@@ -1724,7 +1731,7 @@ static PyMethodDef Container_methods[] = {
     },
     {"create", (PyCFunction)Container_create,
      METH_VARARGS|METH_KEYWORDS,
-     "create(template, args = (,)) -> boolean\n"
+     "create(template, flags, bdevtype, fssize, args = (,)) -> boolean\n"
      "\n"
      "Create a new rootfs for the container, using the given template "
      "and passing some optional arguments to it."
