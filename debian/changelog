@@ -1,4 +1,4 @@
-python3-lxc (1:3.0.4-2) UNRELEASED; urgency=medium
+python3-lxc (1:5.0.0-1) unstable; urgency=medium
 
   [ Debian Janitor ]
   * Bump debhelper from old 12 to 13.
@@ -9,6 +9,7 @@ python3-lxc (1:3.0.4-2) UNRELEASED; urgency=medium
   * Update standards version to 4.6.0, no changes needed.
 
   [ Mathias Gibbens ]
+  * New upstream release
   * d/control:
     - Add myself to Uploaders
     - Bump Standards-Version (no changes needed)
@@ -24,7 +25,7 @@ python3-lxc (1:3.0.4-2) UNRELEASED; urgency=medium
   [ Stéphane Graber ]
   * Add simple testsuite for the package, from Ubuntu
 
- -- Mathias Gibbens <gibmat@debian.org>  Sun, 22 Jan 2023 16:21:19 +0000
+ -- Mathias Gibbens <gibmat@debian.org>  Wed, 25 Jan 2023 22:45:27 +0000
 
 python3-lxc (1:3.0.4-1) unstable; urgency=medium
 
