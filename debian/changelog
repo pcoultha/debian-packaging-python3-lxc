@@ -1,3 +1,13 @@
+python3-lxc (1:5.0.0-2) unstable; urgency=medium
+
+  * d/control:
+    - Update Standards-Version to 4.7.0 (no changes needed)
+    - Update Build-Depends pkg-config => pkgconf
+    - Removed hard-coded Depends on liblxc1 (Closes: #1068937)
+  * Update years in d/copyright
+
+ -- Mathias Gibbens <gibmat@debian.org>  Sun, 14 Apr 2024 01:13:37 +0000
+
 python3-lxc (1:5.0.0-1) unstable; urgency=medium
 
   [ Debian Janitor ]
