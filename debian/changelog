@@ -1,3 +1,14 @@
+python3-lxc (1:5.0.0-3) unstable; urgency=medium
+
+  * Cherry-pick upstream fix for compatibility with Python 3.13+
+    (Closes: #1135733)
+  * d/control:
+    - Update Standards-Version to 4.7.4
+    - Drop redundant Priority and Rules-Requires-Root fields
+  * Update years in d/copyright
+
+ -- Mathias Gibbens <gibmat@debian.org>  Wed, 06 May 2026 18:58:41 +0000
+
 python3-lxc (1:5.0.0-2) unstable; urgency=medium
 
   * d/control:
