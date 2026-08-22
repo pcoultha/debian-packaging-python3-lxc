@@ -1,13 +1,18 @@
-Metadata-Version: 2.1
+Metadata-Version: 2.4
 Name: python3-lxc
-Version: 5.0.0
+Version: 7.0.0
 Summary: Python3 bindings for LXC
 Home-page: git://github.com/lxc/python3-lxc
 Maintainer: lxc
 Maintainer-email: lxc-devel@lists.linuxcontainers.org
 License: LGPLv2+
-Platform: UNKNOWN
 License-File: COPYING
+Dynamic: description
+Dynamic: home-page
+Dynamic: license
+Dynamic: license-file
+Dynamic: maintainer
+Dynamic: maintainer-email
+Dynamic: summary
 
 The lxc-python3 package contains LXC bindings for python3
-
